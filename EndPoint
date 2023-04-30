@@ -1,0 +1,310 @@
+Seller End Point
+1. Post Mapping "/add-product"
+To add a product at a time
+input format = "{
+                    "sellerId": "seller_1",
+                    "productName": "iphone",
+                    "description": "good iphone 11",
+                    "category": "Mobile Phone",
+                    "price": "50,000",
+                    "imageUrl": ["hello", "byy"]
+                }"
+output format = "{
+                     "productId": "3",
+                     "sellerId": "seller_1",
+                     "productName": "iphone",
+                     "description": "good iphone 11",
+                     "category": "Mobile Phone",
+                     "price": "50,000",
+                     "avgRating": "0",
+                     "imageUrl": [
+                         "hello",
+                         "byy"
+                     ],
+                     "reviewIds": [],
+                     "ratingIds": []
+                 }"
+
+2. Post Mapping "/add-products"
+To add a list of product
+input format = "[  {    "sellerId": "seller_1",    "productName": "Samsung Galaxy S21",    "description": "Brand new Samsung Galaxy S21 in Phantom Black",    "category": "Mobile Phone",    "price": "55,000",    "imageUrl": ["https://example.com/images/s21_front.jpg", "https://example.com/images/s21_back.jpg"]
+                  },
+                  {
+                    "sellerId": "seller_1",
+                    "productName": "MacBook Air",
+                    "description": "Brand new MacBook Air with M1 chip",
+                    "category": "Laptop",
+                    "price": "80,000",
+                    "imageUrl": ["https://example.com/images/macbook_air_front.jpg", "https://example.com/images/macbook_air_back.jpg"]
+                  },
+                  {
+                    "sellerId": "seller_1",
+                    "productName": "Sony WH-1000XM4",
+                    "description": "Wireless noise-cancelling headphones from Sony",
+                    "category": "Headphones",
+                    "price": "25,000",
+                    "imageUrl": ["https://example.com/images/sony_headphones_front.jpg", "https://example.com/images/sony_headphones_back.jpg"]
+                  },
+                  {
+                    "sellerId": "seller_1",
+                    "productName": "iPad Pro",
+                    "description": "Brand new iPad Pro with 12.9 inch display",
+                    "category": "Tablet",
+                    "price": "70,000",
+                    "imageUrl": ["https://example.com/images/ipad_pro_front.jpg", "https://example.com/images/ipad_pro_back.jpg"]
+                  },
+                  {
+                    "sellerId": "seller_1",
+                    "productName": "Samsung QLED TV",
+                    "description": "65 inch Samsung QLED TV with Quantum Processor 4K",
+                    "category": "TV",
+                    "price": "1,50,000",
+                    "imageUrl": ["https://example.com/images/samsung_tv_front.jpg", "https://example.com/images/samsung_tv_back.jpg"]
+                  }
+                ]
+"
+
+output format = "[
+                     {
+                         "productId": "2",
+                         "sellerId": "seller_1",
+                         "productName": "Samsung Galaxy S21",
+                         "description": "Brand new Samsung Galaxy S21 in Phantom Black",
+                         "category": "Mobile Phone",
+                         "price": "55,000",
+                         "avgRating": "0",
+                         "imageUrl": [
+                             "https://example.com/images/s21_front.jpg",
+                             "https://example.com/images/s21_back.jpg"
+                         ],
+                         "reviewIds": [],
+                         "ratingIds": []
+                     },
+                     {
+                         "productId": "3",
+                         "sellerId": "seller_1",
+                         "productName": "MacBook Air",
+                         "description": "Brand new MacBook Air with M1 chip",
+                         "category": "Laptop",
+                         "price": "80,000",
+                         "avgRating": "0",
+                         "imageUrl": [
+                             "https://example.com/images/macbook_air_front.jpg",
+                             "https://example.com/images/macbook_air_back.jpg"
+                         ],
+                         "reviewIds": [],
+                         "ratingIds": []
+                     },
+                     {
+                         "productId": "4",
+                         "sellerId": "seller_1",
+                         "productName": "Sony WH-1000XM4",
+                         "description": "Wireless noise-cancelling headphones from Sony",
+                         "category": "Headphones",
+                         "price": "25,000",
+                         "avgRating": "0",
+                         "imageUrl": [
+                             "https://example.com/images/sony_headphones_front.jpg",
+                             "https://example.com/images/sony_headphones_back.jpg"
+                         ],
+                         "reviewIds": [],
+                         "ratingIds": []
+                     },
+                     {
+                         "productId": "5",
+                         "sellerId": "seller_1",
+                         "productName": "iPad Pro",
+                         "description": "Brand new iPad Pro with 12.9 inch display",
+                         "category": "Tablet",
+                         "price": "70,000",
+                         "avgRating": "0",
+                         "imageUrl": [
+                             "https://example.com/images/ipad_pro_front.jpg",
+                             "https://example.com/images/ipad_pro_back.jpg"
+                         ],
+                         "reviewIds": [],
+                         "ratingIds": []
+                     },
+                     {
+                         "productId": "6",
+                         "sellerId": "seller_1",
+                         "productName": "Samsung QLED TV",
+                         "description": "65 inch Samsung QLED TV with Quantum Processor 4K",
+                         "category": "TV",
+                         "price": "1,50,000",
+                         "avgRating": "0",
+                         "imageUrl": [
+                             "https://example.com/images/samsung_tv_front.jpg",
+                             "https://example.com/images/samsung_tv_back.jpg"
+                         ],
+                         "reviewIds": [],
+                         "ratingIds": []
+                     }
+                 ]"
+
+
+3. Get "/products"
+    to get the product by product id
+    input format:- "seller_1" (seller Id)
+    output format :- "[
+                          {
+                              "productId": "1",
+                              "sellerId": "seller_1",
+                              "productName": "iphone",
+                              "description": "good iphone 11",
+                              "category": "Mobile Phone",
+                              "price": "50,000",
+                              "avgRating": "0",
+                              "imageUrl": [
+                                  "hello",
+                                  "byy"
+                              ],
+                              "reviewIds": [],
+                              "ratingIds": []
+                          },
+                          {
+                              "productId": "2",
+                              "sellerId": "seller_1",
+                              "productName": "Samsung Galaxy S21",
+                              "description": "Brand new Samsung Galaxy S21 in Phantom Black",
+                              "category": "Mobile Phone",
+                              "price": "55,000",
+                              "avgRating": "0",
+                              "imageUrl": [
+                                  "https://example.com/images/s21_front.jpg",
+                                  "https://example.com/images/s21_back.jpg"
+                              ],
+                              "reviewIds": [],
+                              "ratingIds": []
+                          },
+                          {
+                              "productId": "3",
+                              "sellerId": "seller_1",
+                              "productName": "MacBook Air",
+                              "description": "Brand new MacBook Air with M1 chip",
+                              "category": "Laptop",
+                              "price": "80,000",
+                              "avgRating": "0",
+                              "imageUrl": [
+                                  "https://example.com/images/macbook_air_front.jpg",
+                                  "https://example.com/images/macbook_air_back.jpg"
+                              ],
+                              "reviewIds": [],
+                              "ratingIds": []
+                          },
+                          {
+                              "productId": "4",
+                              "sellerId": "seller_1",
+                              "productName": "Sony WH-1000XM4",
+                              "description": "Wireless noise-cancelling headphones from Sony",
+                              "category": "Headphones",
+                              "price": "25,000",
+                              "avgRating": "0",
+                              "imageUrl": [
+                                  "https://example.com/images/sony_headphones_front.jpg",
+                                  "https://example.com/images/sony_headphones_back.jpg"
+                              ],
+                              "reviewIds": [],
+                              "ratingIds": []
+                          },
+                          {
+                              "productId": "5",
+                              "sellerId": "seller_1",
+                              "productName": "iPad Pro",
+                              "description": "Brand new iPad Pro with 12.9 inch display",
+                              "category": "Tablet",
+                              "price": "70,000",
+                              "avgRating": "0",
+                              "imageUrl": [
+                                  "https://example.com/images/ipad_pro_front.jpg",
+                                  "https://example.com/images/ipad_pro_back.jpg"
+                              ],
+                              "reviewIds": [],
+                              "ratingIds": []
+                          },
+                          {
+                              "productId": "6",
+                              "sellerId": "seller_1",
+                              "productName": "Samsung QLED TV",
+                              "description": "65 inch Samsung QLED TV with Quantum Processor 4K",
+                              "category": "TV",
+                              "price": "1,50,000",
+                              "avgRating": "0",
+                              "imageUrl": [
+                                  "https://example.com/images/samsung_tv_front.jpg",
+                                  "https://example.com/images/samsung_tv_back.jpg"
+                              ],
+                              "reviewIds": [],
+                              "ratingIds": []
+                          }
+                      ]"
+4. Get "/product"
+    to get a product by product Id
+    input format :- "product_id"
+    output format :- "{
+                          "productId": "3",
+                          "sellerId": "seller_1",
+                          "productName": "MacBook Air",
+                          "description": "Brand new MacBook Air with M1 chip",
+                          "category": "Laptop",
+                          "price": "80,000",
+                          "avgRating": "0",
+                          "imageUrl": [
+                              "https://example.com/images/macbook_air_front.jpg",
+                              "https://example.com/images/macbook_air_back.jpg"
+                          ],
+                          "reviewIds": [],
+                          "ratingIds": []
+                      }"
+
+5. Post "/update-product"
+    To update the product
+    input format :- "{
+                             "productId": "1",
+                             "sellerId": "seller_1",
+                             "productName": "Samsung Galaxy S212432",
+                             "description": "Brand new Samsung Galaxy S21 in Phantom Black",
+                             "category": "Mobile Phone",
+                             "price": "55,000",
+                             "avgRating": "0",
+                             "imageUrl": [
+                                 "https://example.com/images/s21_front.jpg",
+                                 "https://example.com/images/s21_back.jpg"
+                             ],
+                             "reviewIds": [],
+                             "ratingIds": []
+                         }"
+    output format :- "{
+                          "productId": "1",
+                          "sellerId": "seller_1",
+                          "productName": "Samsung Galaxy S212432",
+                          "description": "Brand new Samsung Galaxy S21 in Phantom Black",
+                          "category": "Mobile Phone",
+                          "price": "55,000",
+                          "avgRating": "0",
+                          "imageUrl": [
+                              "https://example.com/images/s21_front.jpg",
+                              "https://example.com/images/s21_back.jpg"
+                          ],
+                          "reviewIds": [],
+                          "ratingIds": []
+                      }"
+
+6. Get "/delete-product"
+    To delete a product from product Id
+    input formate :-"1" (id of the product)
+    output :- "{
+                                         "productId": "1",
+                                         "sellerId": "seller_1",
+                                         "productName": "Samsung Galaxy S212432",
+                                         "description": "Brand new Samsung Galaxy S21 in Phantom Black",
+                                         "category": "Mobile Phone",
+                                         "price": "55,000",
+                                         "avgRating": "0",
+                                         "imageUrl": [
+                                             "https://example.com/images/s21_front.jpg",
+                                             "https://example.com/images/s21_back.jpg"
+                                         ],
+                                         "reviewIds": [],
+                                         "ratingIds": []
+                                     }"
