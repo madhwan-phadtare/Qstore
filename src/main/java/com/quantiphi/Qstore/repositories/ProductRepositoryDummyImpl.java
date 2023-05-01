@@ -19,10 +19,8 @@ public class ProductRepositoryDummyImpl implements ProductRepository{
 
     @Override
     public List<Product> findProductsBySellerId(String sellerId) {
-
         List<Product> products = new ArrayList<>();
         List<Product> allProducts = findAllProducts();
-
         for(Product product : allProducts){
             if(product.getSellerId().equals(sellerId)){
                 products.add(product);
@@ -36,12 +34,10 @@ public class ProductRepositoryDummyImpl implements ProductRepository{
     public List<Product> findProductsByCategory(String category) {
         List<Product> products = new ArrayList<>();
         List<Product> allProducts = findAllProducts();
-
         for(Product product : allProducts){
             if(product.getCategory().equals(category))
                 products.add(product);
         }
-
         return products;
     }
 
@@ -55,18 +51,13 @@ public class ProductRepositoryDummyImpl implements ProductRepository{
 
     @Override
     public Product save(Product product) {
-
         product.setProductId(autoIncrement);
-
         productMap.put(product.getProductId(), product);
-
         int number = Integer.parseInt(autoIncrement);
         number++;
         autoIncrement = Integer.toString(number);
-
         System.out.println("Product Saved");
         System.out.println(productMap.size());
-
         return product;
     }
 

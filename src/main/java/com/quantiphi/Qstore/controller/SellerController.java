@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-
 public class SellerController {
 
     SellerServices sellerServices = new SellerServices();
@@ -25,7 +24,6 @@ public class SellerController {
 
     @PostMapping("/add-product")
     public Product addProduct(@RequestBody Product product){
-//        System.out.println(product);
         product = sellerServices.saveProduct(product);
         return product;
     }
