@@ -22,6 +22,10 @@ public class SellerServices {
         return product;
     }
 
+    public List<Product> getAllProducts(){
+        List<Product> products = productRepository.findAllProducts();
+        return products;
+    }
     public List<Product> getAllProductsBYSellerId(String sellerId){
         List<Product> products = productRepository.findProductsBySellerId(sellerId);
         return products;

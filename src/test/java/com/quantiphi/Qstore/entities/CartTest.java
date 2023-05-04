@@ -1,9 +1,11 @@
 package com.quantiphi.Qstore.entities;
 
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
+
 
 public class CartTest {
 
