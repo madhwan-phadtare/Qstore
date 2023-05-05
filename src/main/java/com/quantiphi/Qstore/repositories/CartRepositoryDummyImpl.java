@@ -2,6 +2,7 @@ package com.quantiphi.Qstore.repositories;
 
 import com.quantiphi.Qstore.entities.Cart;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CartRepositoryDummyImpl implements CartRepository {
@@ -10,7 +11,15 @@ public class CartRepositoryDummyImpl implements CartRepository {
 
     @Override
     public String addProduct(String cartId, String productId) {
-        Cart cart = cartMap.get(cartId);
+        Cart cart;
+        if(cartMap.containsKey(cartId))
+            cart = cartMap.get(cartId);
+        else{
+            cart = new Cart();
+            cart.setCartId(cartId);
+            cart.setProductIds(new ArrayList<String>());
+            cartMap.put(cartId, cart);
+        }
         return cart.addProduct(productId);
     }
 
@@ -22,6 +31,11 @@ public class CartRepositoryDummyImpl implements CartRepository {
 
     @Override
     public Cart getCart(String cartId) {
-        return cartMap.get(cartId);
+        if(cartMap.containsKey(cartId))
+            return cartMap.get(cartId);
+        Cart cart = new Cart();
+        cart.setCartId(cartId);
+        cart.setProductIds(new ArrayList<>());
+        return cart;
     }
 }
