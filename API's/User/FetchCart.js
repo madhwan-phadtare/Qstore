@@ -1,4 +1,4 @@
-fetch('http://localhost:8081/user/cart?cartId=madhwan-cart')
+fetch('http://localhost:8081/user/cart?cartId=harish-cart')
   .then(response => response.json())
   .then(data => {
     console.log(data); // do something with the data

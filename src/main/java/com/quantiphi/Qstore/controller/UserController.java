@@ -1,12 +1,13 @@
 package com.quantiphi.Qstore.controller;
 
+import com.quantiphi.Qstore.config.ApplicationConfig;
 import com.quantiphi.Qstore.entities.Product;
+import com.quantiphi.Qstore.entities.Review;
 import com.quantiphi.Qstore.services.CartServices;
+import com.quantiphi.Qstore.services.ReviewService;
 import com.quantiphi.Qstore.services.UserServices;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.context.ApplicationListener;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,8 +15,10 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
-    CartServices cartServices = new CartServices();
-    UserServices userServices = new UserServices();
+    CartServices cartServices = ApplicationConfig.cartServices;
+    UserServices userServices = ApplicationConfig.userServices;
+    ReviewService reviewServices = ApplicationConfig.reviewServices;
+
 
     @GetMapping("/helloUser")
     public String hello(){
@@ -50,6 +53,16 @@ public class UserController {
     @GetMapping("cart")
     public List<Product> fetchCart(@RequestParam("cartId") String cartId){
         return cartServices.getCart(cartId);
+    }
+
+    @PostMapping("review")
+    public String addReview(@RequestBody Review review){
+        return reviewServices.addReview(review);
+    }
+
+    @GetMapping("review")
+    public Review getReview(@RequestParam("reviewId") String reviewId){
+        return reviewServices.getReview(reviewId);
     }
 
 }

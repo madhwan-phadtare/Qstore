@@ -1,5 +1,5 @@
-const cartId = 'madhwan-cart';
-const productId = '12';
+const cartId = 'harish-cart';
+const productId = '15';
 
 fetch(`http://localhost:8081/user/cart/add?cartId=${cartId}&productId=${productId}`)
   .then(response => {

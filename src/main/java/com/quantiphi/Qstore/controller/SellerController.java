@@ -48,11 +48,13 @@ public class SellerController {
         return sellerServices.getProductBYProductId(productId);
     }
 
+    //use PUT
     @PostMapping("/update-product")
     public Product updateProduct(@RequestBody Product product){
         return sellerServices.updateProduct(product);
     }
 
+    //use PUT
     @GetMapping("/delete-product")
     public Product deleteProduct(@RequestParam("productId") String productId){
         return sellerServices.deleteProduct(productId);

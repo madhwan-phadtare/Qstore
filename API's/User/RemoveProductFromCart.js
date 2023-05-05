@@ -1,4 +1,4 @@
-const cartId = 'madhwan-cart';
+const cartId = 'harish-cart';
 const productId = '12';
 
 fetch(`http://localhost:8081/user/cart/remove?cartId=${cartId}&productId=${productId}`)

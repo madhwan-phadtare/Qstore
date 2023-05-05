@@ -21,5 +21,10 @@ public class Product {
     private List<String> reviewIds;
     private List<String> ratingIds;
 
+    public String addReview(String reviewId){
+        reviewIds.add(reviewId);
+        return "success";
+    }
+
 
 }
