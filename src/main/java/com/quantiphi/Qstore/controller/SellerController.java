@@ -1,8 +1,6 @@
 package com.quantiphi.Qstore.controller;
 
-import com.quantiphi.Qstore.DTO.ReviewRequest;
 import com.quantiphi.Qstore.entities.Product;
-import com.quantiphi.Qstore.entities.Review;
 import com.quantiphi.Qstore.services.SellerServices;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,13 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/seller")
 public class SellerController {
 
     SellerServices sellerServices = new SellerServices();
 
     @GetMapping("/helloseller")
     public String hello(){
-        return "Hello Seller";
+        return "Hello Seller you are connected";
     }
 
     @PostMapping("/add-product")
@@ -39,26 +38,24 @@ public class SellerController {
     public List<Product> getAllProduct(@RequestParam("sellerId") String sellerId){
         if(sellerId.equals(""))
             return sellerServices.getAllProducts();
-        List<Product> products = sellerServices.getAllProductsBYSellerId(sellerId);
-        return products;
+        else
+            return sellerServices.getAllProductsBYSellerId(sellerId);
+
     }
 
     @GetMapping("/product")
     public Product getProductById(@RequestParam("productId") String productId){
-        Product product = sellerServices.getProductBYProductId(productId);
-        return product;
+        return sellerServices.getProductBYProductId(productId);
     }
 
     @PostMapping("/update-product")
     public Product updateProduct(@RequestBody Product product){
-        Product newProduct = sellerServices.updateProduct(product);
-        return newProduct;
+        return sellerServices.updateProduct(product);
     }
 
     @GetMapping("/delete-product")
     public Product deleteProduct(@RequestParam("productId") String productId){
-        Product product = sellerServices.deleteProduct(productId);
-        return product;
+        return sellerServices.deleteProduct(productId);
     }
 
 }

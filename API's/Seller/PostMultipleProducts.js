@@ -243,7 +243,7 @@ const product = [  {    "sellerId": "seller_1",    "productName": "Samsung Galax
 
 ];
   
-  fetch('http://localhost:8081/add-products', {
+  fetch('http://localhost:8081/seller/add-products', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

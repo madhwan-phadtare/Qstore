@@ -1,4 +1,4 @@
-fetch('http://localhost:8081/products?sellerId=seller_1')
+fetch('http://localhost:8081/seller/products?sellerId=seller_1')
   .then(response => response.json())
   .then(data => {
     console.log(data); // do something with the data

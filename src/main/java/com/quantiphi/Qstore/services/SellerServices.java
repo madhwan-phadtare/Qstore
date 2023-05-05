@@ -1,5 +1,6 @@
 package com.quantiphi.Qstore.services;
 
+import com.quantiphi.Qstore.config.ApplicationConfig;
 import com.quantiphi.Qstore.entities.Product;
 import com.quantiphi.Qstore.repositories.ProductRepository;
 import com.quantiphi.Qstore.repositories.ProductRepositoryDummyImpl;
@@ -8,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SellerServices {
-    ProductRepository productRepository = new ProductRepositoryDummyImpl();
+    ProductRepository productRepository = ApplicationConfig.productRepository;
+
 
     public Product saveProduct(Product product)
     {

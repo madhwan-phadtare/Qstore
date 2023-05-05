@@ -11,7 +11,7 @@ const product = {
     ]
   };
   
-  fetch('http://localhost:8081/update-product', {
+  fetch('http://localhost:8081/seller/update-product', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

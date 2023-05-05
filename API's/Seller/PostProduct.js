@@ -7,7 +7,7 @@ const product = {
     imageUrl: ["hello", "byy"]
   };
   
-  fetch('http://localhost:8081/add-product', {
+  fetch('http://localhost:8081/seller/add-product', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

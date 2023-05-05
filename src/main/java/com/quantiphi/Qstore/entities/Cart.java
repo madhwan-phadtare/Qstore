@@ -7,7 +7,15 @@ import java.util.List;
 @Data
 public class Cart {
     private String cartId;
-    private String userid;
     private List<String> productIds;
-    private String amount;
+    public String addProduct(String productId){
+        productIds.add(productId);
+        return "success";
+    }
+
+    public String removeProduct(String productId){
+        productIds.remove(productId);
+        return "success";
+    }
+
 }

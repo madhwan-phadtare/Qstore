@@ -1,10 +1,12 @@
 package com.quantiphi.Qstore.repositories;
 
 import com.quantiphi.Qstore.entities.Product;
+import org.springframework.context.annotation.Bean;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 
 public class ProductRepositoryDummyImpl implements ProductRepository{
     HashMap<String, Product> productMap = new HashMap<>();

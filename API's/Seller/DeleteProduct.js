@@ -1,6 +1,6 @@
 const productId = "1"; // Replace with the ID of the product to be deleted
 
-fetch(`http://localhost:8081/delete-product?productId=${productId}`, {
+fetch(`http://localhost:8081/seller/delete-product?productId=${productId}`, {
   method: 'GET'
 })
   .then(response => response.json())
